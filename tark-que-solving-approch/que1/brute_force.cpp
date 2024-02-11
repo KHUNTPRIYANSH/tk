@@ -41,8 +41,8 @@ int Sol(int n, vector<pair<char, int>> vp)
 
 int main()
 {
-    // vector<string> v{"x + 10", "x - 5", "x * 5", "x ^ 2"};
-    // int n = 2500;
+    vector<string> v{"x + 10", "x - 5", "x * 5", "x ^ 2"};
+    int n = 2500;
     // vector<string> v{"x * 5", "x / 0", "x ^ 3"};
     // int n = 1000;
     // vector<string> v{"x * 5", "x * 0", "x + 10"};
