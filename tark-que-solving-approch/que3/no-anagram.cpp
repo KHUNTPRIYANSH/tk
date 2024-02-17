@@ -1,25 +1,29 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
-void Sol(int n , vector<string> v)
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    set<string> s;
-    for(int i = 0 ;i< n ; i++){
-        sort(v[i].begin(),v[i].end());
-        s.insert(v[i]);
-    }
-    cout<<v.size()-s.size();
+string sortString(const string& str) {
+    string sortedStr = str; 
+    sort(sortedStr.begin(), sortedStr.end()); 
+    return sortedStr;
 }
 
-int main()
-{
-    //1.
-    // vector<string> v = {"cat","act","dog","god"};
-    //2.
-    vector<string> v = {"abc","bca","cde"};
+int countAnagramPairs(vector<string>& strings) {
+    map<string, int> frequency;
+    for (const string& str : strings) {
+        string sortedStr = sortString(str);
+        frequency[sortedStr]++;
+    }
+    int pairs = 0;
+    for (const auto& it : frequency) {
+        int count = it.second;
+        pairs += count * (count - 1) / 2;
+    }
+    return pairs;
+}
 
-    Sol(v.size() , v);
+int main() {
+    vector<string> strings = {"abcd", "dcab", "bacd", "dabc", "abcd"};
+    cout << "Number of anagram pairs: " << countAnagramPairs(strings) << endl;
     return 0;
 }
